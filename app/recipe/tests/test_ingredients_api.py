@@ -99,7 +99,7 @@ class PrivateIngredientsApiTests(TestCase):
         )
         recipe.ingredients.add(ingredient1)
 
-        res = self.client.get(INGREDIENTS_URL, {'assinged_only': 1})
+        res = self.client.get(INGREDIENTS_URL, {'assigned_only': 1})
 
         serializer1 = IngredientSerializer(ingredient1)
         serializer2 = IngredientSerializer(ingredient2)
@@ -125,6 +125,6 @@ class PrivateIngredientsApiTests(TestCase):
         )
         recipe2.ingredients.add(ingredient)
 
-        res = self.client.get(INGREDIENTS_URL, {'assinged_only': 1})
+        res = self.client.get(INGREDIENTS_URL, {'assigned_only': 1})
 
         self.assertEqual(len(res.data), 1)
